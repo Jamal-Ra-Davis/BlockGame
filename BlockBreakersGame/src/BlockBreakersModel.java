@@ -461,4 +461,19 @@ public class BlockBreakersModel {
     	return activePowerUp.getLifeTime();
     }
     public ArrayList<PowerUp> getPowerUps() {return fieldPowerUps;}
+    
+    public void drawModel(Graphics g, BlockBreakersView view) {
+    	paddle.drawPaddle(g, view);
+    	ball.drawBall(g, view);
+    	for (BlockModel block : Blocks) {
+    		block.drawBlock(g, view);
+    	}
+    	for (ForceObject force : forces) {
+    		force.drawForce(g, view);
+    	}
+    	for (PowerUp powerup : fieldPowerUps) {
+    		powerup.drawPowerUp(g, view);
+    	}
+    }
+    
 }

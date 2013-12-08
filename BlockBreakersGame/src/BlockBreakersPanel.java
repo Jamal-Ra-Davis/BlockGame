@@ -36,6 +36,8 @@ public class BlockBreakersPanel extends JPanel {
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		model.drawModel(g, view);
+		/*
 		// Paddle drawing
 		g.setColor(Color.RED);
 		int x = (int) model.getPaddleX();
@@ -68,16 +70,7 @@ public class BlockBreakersPanel extends JPanel {
 			g.setColor(blockColor);
 			g.fillRect(x, y, blk_width, blk_height);
 		}
-		/*
-		ForceObject Fobj = model.getForceObject();
-		g.setColor(Color.BLUE);
-		x = (int)Fobj.getPosX();
-		y = (int)Fobj.getPosY();
-		if (view.getFlipVertical()) {
-			y = view.translateY(y) - model.getBallDiameter();
-		}
-		g.fillOval(x, y, (int)Fobj.getDiameter(), (int)Fobj.getDiameter());
-		*/
+		
 		ArrayList<ForceObject> forces = model.getForces();
 		for (int i=0; i<forces.size(); i++) {
 			g.setColor(forces.get(i).getColor());
@@ -100,5 +93,6 @@ public class BlockBreakersPanel extends JPanel {
 			}
 			g.fillOval(x, y, D, D);
 		}
+		*/
 	}
 }

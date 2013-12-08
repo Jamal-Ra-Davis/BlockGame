@@ -28,7 +28,9 @@ public class PaddleModel {
     	return paddleY;
     	//return pos.getY();
     }
-    
+    public Color getColor() {
+    	return color;
+    }
     public void setPaddleX(double value){
     	paddleX = value;
     	pos.setX(value);
@@ -38,7 +40,9 @@ public class PaddleModel {
     	paddleY = value;
     	pos.setY(value);
     }
-    
+    public void setColor(Color C) {
+    	color = C;
+    }
     public int getPaddleWidth(){
     	return paddleWidth;
     }
@@ -144,7 +148,7 @@ public class PaddleModel {
 		if (view.getFlipVertical()) {
 			y = view.translateY(y) - paddleHeight;
 		}
-		g.setColor(Color.RED);
+		g.setColor(color);
 		g.fillRect(x, y, paddleWidth, paddleHeight);
 		
 	}
