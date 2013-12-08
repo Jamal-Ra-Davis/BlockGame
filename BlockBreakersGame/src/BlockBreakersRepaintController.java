@@ -71,18 +71,7 @@ public class BlockBreakersRepaintController implements ActionListener {
 		// Handles removing the blocks that have been collided with
 		
 		ArrayList<BlockModel> Blocks = model.getBlockList();
-		/*
-		BlockModel toRemove = null;
-		for(BlockModel block : Blocks) {
-			if (block.getCollision()){
-				toRemove = block;
-			}
-		}
-		if (toRemove != null) {
-			Blocks.remove(toRemove);
-			System.out.println("# of blocks in list: " + Blocks.size());
-		}
-		*/
+		
 		Iterator<BlockModel> iterator = Blocks.iterator();
         while (iterator.hasNext()) {
         	BlockModel block = (BlockModel)iterator.next();

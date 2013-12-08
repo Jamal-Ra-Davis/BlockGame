@@ -2,6 +2,7 @@
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 /**
  * This along with BlockBreakersPanel implements the view of the simple BlockBreakers game.
@@ -22,6 +23,10 @@ public class BlockBreakersView extends JFrame {
     private JPopupMenu popupMenu;
     /* For east panel */
     private JPanel eastP;
+    
+    private JPanel menu;
+    private JButton start;
+    private JButton swap;
     /* controls whether paddle appears on top of JPanel */
     private boolean flipVertical;
 
@@ -71,6 +76,25 @@ public class BlockBreakersView extends JFrame {
         /* CENTER:
          * The panel where BlockBreakers is played
          */
+        
+        //--------------------------------
+        
+        menu = new JPanel();
+        menu.setLayout(new BorderLayout());
+        JLabel title = new JLabel("Block Breakers", JLabel.CENTER);
+        start = new JButton("Click to Play");
+        
+        start.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent A) {
+				showGame();
+			}
+		});
+        
+        menu.add(title, BorderLayout.CENTER);
+        menu.add(start, BorderLayout.SOUTH);
+        
+        //----------------------------------
+        
         blockBreakerPanel = new BlockBreakersPanel(model, this);
         add(blockBreakerPanel, BorderLayout.CENTER);
         blockBreakerPanel.setBackground(Color.WHITE);
@@ -141,6 +165,17 @@ public class BlockBreakersView extends JFrame {
         BlockBreakersEP handler1 = new BlockBreakersEP(blockBreakerPanel);
 		b1.addActionListener(handler1);
         
+		swap = new JButton("Main Menu");
+		Font sFont = new Font(swap.getFont().getName(),swap.getFont().getStyle(),10);
+		eastP.add(swap);
+		
+		swap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent A) {
+				showMenu();
+			}
+		});
+		
+		
         /*JButton b2 = new JButton("" +
         		"<html><div align=center>Change Color<br />Scheme</div></html>");
         Font bFont2 = new Font(b2.getFont().getName(),b2.getFont().getStyle(),10); 
@@ -283,4 +318,23 @@ public class BlockBreakersView extends JFrame {
             popupMenu.show(event.getComponent(), event.getX(), event.getY()); 
         }
     }
+    public void showGame() {
+    	remove(blockBreakerPanel);
+    	remove(menu);
+    	
+    	add(blockBreakerPanel, BorderLayout.CENTER);
+    	validate();
+    	repaint();
+    }
+    public void showMenu() {
+    	remove(blockBreakerPanel);
+    	remove(menu);
+    	
+    	add(menu, BorderLayout.CENTER);
+    	validate();
+    	repaint();
+    }
+    
+    
+    
 }
