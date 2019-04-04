@@ -227,11 +227,7 @@ public class Vector2d {
 	}
 	
 	public String toString() {
-		String out = "";
-		out += "X: ";
-		out += x;
-		out += ", Y: ";
-		out += y;
+		String out = String.format("X: %f, Y: %f", x, y);
 		return out;
 	}
 	

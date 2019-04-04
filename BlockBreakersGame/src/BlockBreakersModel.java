@@ -338,7 +338,7 @@ public class BlockBreakersModel {
         		if (block.getCollision()){
         			score.recievePoints(block.getPoints());
         			blocksRemaining--;
-        			System.out.println("# of Blocks remaining: " + blocksRemaining);
+        			//System.out.println("# of Blocks remaining: " + blocksRemaining);
         			if (blocksRemaining <= 0)
         				levelComplete = true;
         			if (block.getPowerUpID() != 0){

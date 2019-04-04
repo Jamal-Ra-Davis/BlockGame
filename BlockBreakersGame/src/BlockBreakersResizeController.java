@@ -33,7 +33,9 @@ public class BlockBreakersResizeController extends ComponentAdapter {
     	Dimension size = view.getBlockBreakersPanelSize();
     	if (size.width != model.getWidth() || size.height != model.getHeight()) {
     		model.setSize(size.width, size.height);
-    		view.setStatus("Size is " + size.width + " x " + size.height);
+            String status_ = String.format("Size is %d x %d", size.width, size.height);
+    		//view.setStatus("Size is " + size.width + " x " + size.height);
+            view.setStatus(status_);
     	}
     }
 }

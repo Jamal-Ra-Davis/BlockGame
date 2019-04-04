@@ -38,25 +38,35 @@ public class BlockBreakersRepaintController implements ActionListener {
 		int chain = model.getChain();
 		ScoreModel score = model.getScore();
 		model.moveBall();
-		String status = model.getChain() + " Chain, x" + score.getMultiplier() + " Multiplier";
-		status += ", PowerUp: " + model.getPowerUpName();
+        String status = String.format("%d Chain, x%d Multiplier, PowerUp: %s", model.getChain(), score.getMultiplier(), model.getPowerUpName());
+		//String status = model.getChain() + " Chain, x" + score.getMultiplier() + " Multiplier";
+		//status += ", PowerUp: " + model.getPowerUpName();
 		view.setStatus(status);
 		//adding to the east panel
-		view.setEastscores(score.getScore()+"");
-		view.setEastballs(model.getBallsLeft()+"");
+
+		//view.setEastscores(score.getScore()+"");
+		//view.setEastballs(model.getBallsLeft()+"");
+        view.setEastscores(String.format("%d", score.getScore()));
+        view.setEastballs(String.format("%d", model.getBallsLeft()));
+
 		String powerup_status = model.getPowerUpName();
 		if (model.hasActivePowerUp()){
 			int time = model.getPowerUpLife()/25;
-			powerup_status += " (" + time + "s)";
+			//powerup_status += " (" + time + "s)";
+            powerup_status = String.format("%s (%ds)", powerup_status, time);
 		}
 		view.setEastPowerUps(powerup_status);
 		if (hits != model.getHits() || misses != model.getMisses() ||
 			chain != model.getChain()) {
-			view.setStatus(model.getChain() + " Chain, x" + score.getMultiplier() +
-					   " Multiplier");
+			//view.setStatus(model.getChain() + " Chain, x" + score.getMultiplier() +
+			//		   " Multiplier");
+            view.setStatus(String.format("%d Chain, x%d Multiplier", model.getChain(), score.getMultiplier()));
 		//adding to the east panel
-		view.setEastscores(score.getScore()+"");
-		view.setEastballs(model.getBallsLeft()+"");
+		//view.setEastscores(score.getScore()+"");
+		//view.setEastballs(model.getBallsLeft()+"");
+        view.setEastscores(String.format("%d", score.getScore()));
+        view.setEastballs(String.format("%d", model.getBallsLeft()));
+
 			
 		}
 		if (model.levelComplete()) {
@@ -77,7 +87,7 @@ public class BlockBreakersRepaintController implements ActionListener {
         	BlockModel block = (BlockModel)iterator.next();
         	if (block.getCollision()) {
         		iterator.remove();
-        		System.out.println("# of blocks in list: " + Blocks.size());
+        		//System.out.println("# of blocks in list: " + Blocks.size());
         	}
         }
 		view.repaint();

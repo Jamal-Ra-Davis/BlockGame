@@ -261,7 +261,7 @@ public class BlockModel {
     		Vector2d fromSide = Vector2d.makeVector(points[i], tempPt);
     		Vector2d fromBall = Vector2d.makeVector(ballPrevPos, tempPt);
     		System.out.print(tempPt);
-    		System.out.println(" Side: " + i);
+    		//System.out.println(" Side: " + i);
     		if ((fromSide.getMagnitude() < sides[i].getMagnitude())&&(fromBall.getMagnitude() < ballDisplacement.getMagnitude())) {
     			collisionSide[i] = true;
     			impactPoint = tempPt;
@@ -272,7 +272,7 @@ public class BlockModel {
     	}
     	boolean fail = false;
     	if (cnt != 1) {
-    		System.out.println("Too many or no valid collison sides have been found! - " + cnt);
+    		//System.out.println("Too many or no valid collison sides have been found! - " + cnt);
     		fail = true;
     	}
     	if (impactPoint == null) {
